@@ -1,1 +1,1 @@
-# Iowa_Liquor_Sales_SQL
+# Iowa Liquor Sales Analysis By PostgreSQL
