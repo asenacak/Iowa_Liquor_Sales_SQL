@@ -110,12 +110,34 @@ WHERE category_name IS NOT NULL
 GROUP BY category_name, year
 ORDER BY category_name, year;
 
+--10) Annual Sales by City
 
--- 10) Categories Sold Every Year for 13 Years
+SELECT 
+ EXTRACT(YEAR FROM date) AS year,
+ city,
+ ROUND(CAST(SUM(sale_dollars) AS numeric), 2) total_sales
+FROM sales
+WHERE city IS NOT NULL
+GROUP BY city, year
+ORDER BY city, year;
+
+--11) Annual Sales by County
+
+SELECT 
+ EXTRACT(YEAR FROM date) AS year,
+ county,
+ ROUND(CAST(SUM(sale_dollars) AS numeric), 2) total_sales
+FROM sales
+WHERE county IS NOT NULL
+GROUP BY county, year
+ORDER BY county, year;
+
+
+-- 12) Products\Categories Sold Every Year for 13 Years
 
 SELECT 
   category_name
 FROM sales
 GROUP BY category_name
-HAVING COUNT(DISTINCT EXTRACT(YEAR FROM date)) = 13 -- there 13-year data
+HAVING COUNT(DISTINCT EXTRACT(YEAR FROM date)) = 13 -- 13-year data
 ORDER BY category_name;
