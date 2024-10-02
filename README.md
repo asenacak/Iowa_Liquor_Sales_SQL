@@ -35,14 +35,28 @@ You can access the dataset here: [Iowa Liquor Sales Dataset](https://console.clo
 23. volume_sold_liters    : Total volume of liquor ordered in liters. (i.e. (Bottle Volume (ml) x Bottles Sold)/1,000)
 24. volume_sold_gallons   : Total volume of liquor ordered in gallons. (i.e. (Bottle Volume (ml) x Bottles Sold)/3785.411784)
 
+## Project Structure
+
+- **LICENSE**: Project's license.
+- **README.md**: Project overview and guide.
+- **countNullUnique.sql**: Counts null and unique values in the dataset.
+- **createSalesTable.sql**: Creates database tables and loads data.
+- **iowa.csv**: Raw dataset file.
+- **overallAnalysis.sql**: SQL scripts for detailed analysis.
+
+
+
+
 ## Analysis Overview
 This project uses SQL queries to analyze the dataset from multiple perspectives, such as product performance, regional trends, and growth analysis. 
 
 ### 1) Top 10 Products, Vendors, Stores, Cities, and Counties by Sales
 * Objective: Identify the top-performing liquor categories, suppliers, retailers, cities, and counties based on total sales revenue.
+* Value: These analyses help pinpoint the most successful products and regions, enabling strategic business decisions on product stocking and market focus.
 
 ### 2)  Yearly and Monthly Sales
-* Objective: Examine sales trends over time.
+* Objective: Examine total sales over time.
+* Value: Businesses can use this analysis to plan inventory, marketing campaigns, and promotions, optimizing them for peak seasons and identifying growth opportunities.
 
 ### 3) Annual Growth Rate
 * Objective: Calculate year-over-year sales growth to identify high-growth periods.
@@ -52,3 +66,4 @@ This project uses SQL queries to analyze the dataset from multiple perspectives,
 
 ### 5) Consistently Sold Categories
 * Objective: Identify liquor categories that have been sold every year for the 13-year period in the dataset.
+* Value: Shows which products have sustained demand, indicating reliable categories that businesses can prioritize in long-term planning.
