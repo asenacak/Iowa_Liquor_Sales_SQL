@@ -55,15 +55,20 @@ This project uses SQL queries to analyze the dataset from multiple perspectives,
 * Value: These analyses help pinpoint the most successful products and regions, enabling strategic business decisions on product stocking and market focus.
 
 ### 2)  Yearly and Monthly Sales
-* Objective: Examine total sales over time.
+* Objective: Examine sales trends over time (both yearly and monthly).
 * Value: Businesses can use this analysis to plan inventory, marketing campaigns, and promotions, optimizing them for peak seasons and identifying growth opportunities.
 
 ### 3) Annual Growth Rate
 * Objective: Calculate year-over-year sales growth to identify high-growth periods.
 
 ### 4) Annual Sales by Category
-* Objective: Break down sales by product categories over the years to track demand for different types of liquor.
+* Objective: Break down yearly sales by product categories to track the demand for different types of liquor over time.
+* Value: Helps in understanding which categories are growing in popularity and which are declining.
 
-### 5) Consistently Sold Categories
+### 5) Annual Sales by City and County
+* Objective: Analyze annual sales at the city and county levels to identify regional trends.
+* Value: Provides insights into which regions are consistently driving higher sales, enabling targeted regional marketing and inventory planning.
+
+### 6) Consistently Sold Categories
 * Objective: Identify liquor categories that have been sold every year for the 13-year period in the dataset.
 * Value: Shows which products have sustained demand, indicating reliable categories that businesses can prioritize in long-term planning.
