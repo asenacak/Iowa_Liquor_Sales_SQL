@@ -75,4 +75,47 @@ FROM sales
 GROUP BY month_name
 ORDER BY MIN(EXTRACT(MONTH FROM date));
 
+--8) Annual Growth
 
+--- Step 1: Create a CTE (Common Table Expression) to calculate total sales for each year
+WITH current_total_sales AS (
+  SELECT
+   EXTRACT(YEAR FROM date) AS year, 
+   ROUND(CAST(SUM(sale_dollars) AS numeric), 2) AS cur_total_sales 
+  FROM sales
+  WHERE EXTRACT(YEAR FROM date) < 2024 -- Exclude 2024 due to incomplete data
+  GROUP BY year 
+  ORDER BY year
+)
+--- Step 2: Calculate the year-over-year sales growth
+SELECT *
+FROM (
+  SELECT
+    year,
+    cur_total_sales, 
+    COALESCE(LAG(cur_total_sales) OVER (ORDER BY year), 0) AS previous_year_sale, 
+    ROUND(((cur_total_sales - LAG(cur_total_sales) OVER (ORDER BY year)) / LAG(cur_total_sales) OVER (ORDER BY year)) * 100, 2) AS growth 
+  FROM current_total_sales
+) AS sales_growth
+WHERE year > 2012; -- Exclude 2012 because there's no data for 2011
+
+--9) Annual Sales by Category
+
+SELECT 
+  category_name,
+  EXTRACT(YEAR FROM date) AS year,
+  ROUND(CAST(SUM(sale_dollars) AS numeric), 2) AS total_sales
+FROM sales
+WHERE category_name IS NOT NULL 
+GROUP BY category_name, year
+ORDER BY category_name, year;
+
+
+-- 10) Categories Sold Every Year for 13 Years
+
+SELECT 
+  category_name
+FROM sales
+GROUP BY category_name
+HAVING COUNT(DISTINCT EXTRACT(YEAR FROM date)) = 13 -- there 13-year data
+ORDER BY category_name;
